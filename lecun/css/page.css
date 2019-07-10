@@ -1,0 +1,105 @@
+#main {
+	width: 1000px;
+	margin: 10px auto;
+}
+#main .main-c{display: flex;width: 1000px;}
+#main .main_l {
+	width: 360px;
+	margin: 10px;
+	position: relative;
+	
+}
+
+#main .main_l .s_box {
+	width: 360px;
+	height: 360px;
+	position: relative;
+	margin-bottom:10px;
+}
+
+#main .main_l .s_box .img1 {
+	width: 360px;
+	height: 360px;
+	position: absolute;
+	display: none;
+}
+#main .main_l .s_box .active{display:block;}
+#main .main_l .s_box span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	background:red url(../img/xq80.jpg) no-repeat;
+	background-size: 360px 360px;
+	opacity: 0.5;
+}
+
+/*为了解决在js中的移动闪烁问题*/
+#main .main_l .s_box p {
+	width: 360px;
+	height: 360px;
+	margin: 0;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 0;
+}
+
+#main .main_l .s_box .img2 {
+	width: 60px;
+	height: 60px;
+	margin-top: 10px;
+}
+
+#main .main_l .b_box {
+	width: 360px;
+	height: 360px;
+	position: absolute;
+	left: 400px;
+	top: 0;
+	overflow: hidden;
+}
+
+#main .main_l .b_box img {
+	width: 1080px;
+	height: 1080px;
+	position: absolute;
+	display:block;
+}
+
+#main .main_l .img_b{
+	display: flex;
+	justify-content: space-between;
+}
+
+#main .main_r{
+	padding:0 20px;
+	flex:1;
+}
+#main .main_r .name{
+	padding:20px 0;
+	font:700 18px/2 "";
+}
+#main .main_r .hot{
+	color:#666;
+	font:700 14px/2 "";
+}
+#main .main_r .price1{
+	font:700 20px/2 "";
+	color:#f00;
+}
+#main .main_r .price2{
+	font:700 16px/2 "";
+	color:#f00;
+	text-decoration:line-through;
+}
+#main .main_r .car{
+	font: 700 16px/40px "";
+    color: #fff;
+    text-align: center;
+    height: 40px;
+	width:120px;
+    border-radius: 5px;
+	background: #f00;
+	margin-top:50px;
+}

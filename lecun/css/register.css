@@ -1,0 +1,59 @@
+@charset "utf-8";
+body{background: #F6F6F6;}
+#main .center{width:1000px;height:652px;margin:0 auto;}
+#main .center form{
+	width: 718px;
+    display: table;
+    margin: 50px auto;
+    background: #fff;
+    padding: 42px 0 50px 282px;
+}
+form input.txt{
+	width: 440px;
+	height: 50px;
+	line-height: 50px;
+	color: #333;
+	font-size: 16px;
+	font-family: '微软雅黑';
+	text-indent:40px ;
+	border: 1px solid #999;
+	margin-bottom: 20px;
+}
+form #user{
+	background:url(../img/user.jpg)no-repeat 15px 15px;
+}
+form #pass{
+	background:url(../img/pass.jpg)no-repeat 15px 15px;
+}
+form #passEnd{
+	background:url(../img/pass.jpg)no-repeat 15px 15px;
+}
+form #tel{background:url(../img/tel.jpg)no-repeat 15px 15px;}
+#main .center form p{}
+form #prove{width: 180px;background:url(../img/yz.jpg)no-repeat 15px 15px;}
+form #prove_r{width: 180px;height:40px;}
+form #btn{
+	display: block;
+    width: 440px;
+    height: 50px;
+    line-height: 50px;
+    background: #eb0000;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    transition: all 0.2s linear 0s;
+	border: 0;
+}
+#main .center form a{
+	display: block;
+    width: 438px;
+    height: 48px;
+    line-height: 48px;
+    background: #fff;
+    border: 1px solid #03a9f4;
+    text-align: center;
+    color: #03a9f4;
+    font-size: 18px;
+    margin-top: 25px;
+    position: relative;
+}

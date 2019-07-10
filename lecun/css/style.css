@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* 页头部分 */
+.margin{width:1200px;margin:0 auto;}
+.top_l {width:100%;height:32px;background-color:#f1f1f1;border-bottom:1px solid #e7e7e7;}
+.top_m {width:1200px;margin:0 auto;overflow: hidden;line-height:32px;}
+.top_m h4 {float:left;}
+.top {float:right;}
+.top li {min-width:80px;float:left;text-align:center;height:32px;line-height:32px;position:relative;/* 此处待查 */}
+.top li.on{margin-right:8px;}
+.top li.on>span{color:#000;}
+.top li span{color:#777;}
+.top li a{margin:0 3px;}
+
+header{overflow: hidden;}
+header #logo{float: left;}
+header>dl{margin-top:37px;width: 84px;float: left;text-align: center;}
+header>dl dt{line-height: 26px;height: 26px;font-size: 16px;font-weight: bold;color: #000000;}
+header>dl dd{width: 61px;height: 21px;border: 1px solid #e5e5e5;display: inline-block;position: relative;background-color: #ffffff;line-height: 21px;}
+header>dl dd select{width: 61px;height: 21px;border:none;}
+header>form{margin:37px 0 0 60px;width: 440px;float: left;overflow: hidden;}
+header>form #txt{width: 256px;height: 32px;border-top: 1px solid #e60012;border-bottom: 1px solid #e60012;border-left: 1px solid #e60012;border-right: none;padding-left: 40px;font-size: 12px;color: #666666;float: left;background: url(../img/t0.png) 12px 7px no-repeat;}
+header>form #sub{margin-right:2px;width: 70px;height: 34px;line-height: 34px;font-size: 14px;float: left;color: #ffffff;border: none;cursor: pointer;background: #e60012;}
+header>form #btn{width: 70px;height: 34px;line-height: 34px;font-size: 14px;float: left;color: #ffffff;border: none;cursor: pointer;background: #666;}
+header>form>p{width:400px;overflow: hidden;}
+header>form>p a{margin-right:20px;line-height: 22px;color: #666666;}
+header #shop{
+	width: 92px;
+    height: 32px;
+	padding-left: 46px;
+	background:#f9f9f9 url(../img/t1.png)26px 8px no-repeat;
+	float: left;
+	line-height: 32px;
+	position: relative;
+	margin:37px 30px 0 20px;
+}
+header #shop img{display: block;position: absolute;left:102px;top:-3px;}
+/* 楼层效果 */
+#floors{width:40px;position: fixed;top:40%;left:10px;}
+#floors>li{width:40px;height:40px;margin:10px 0;text-align: center;line-height: 40px;background: #f25c5d;font-size: 14px;border-radius:50% ;color:#FFF;}
+/* 导航栏 */
+nav{height:43px;position:relative;}
+/* 外框 */
+.nav_bg{border-bottom:2px solid #e60012 ;width:100%;}
+#qizi{background: url(../img/t4.png);width:199px;height:155px;position:absolute;right:100px;top:40px;}
+/* 左边的导航部分 */
+nav>ul{overflow:hidden;float: left;}
+nav>ul li{float: left;line-height: 43px;height: 43px;font-size: 15px;padding: 0 18px;}
+nav>ul li a{color:#000;}
+nav>ul li:hover a{color:#f32613;}
+
+/* 右边的三级菜单 */
+nav>.navMenu a{color:#fff;font:16px/43px "";}
+nav>.navMenu li{width:210px;height:43px;border-right: 2px solid #e02e3c;border-bottom: 2px solid #e02e3c;}
+nav>.navMenu{float: left;width:212px;height:43px;text-align: center;background:#f32613 url(../img/t5.png)no-repeat 16px 16px;position: relative;}
+nav>.navMenu .ul1{position: absolute;top:43px;left:0;}
+nav>.navMenu .ul1 .li1{position: relative;}
+nav>.navMenu .ul2{position: absolute;top:0;left:212px;}
+nav>.navMenu .li2>a{display: block;width:210px;height:43px;}
+nav>.navMenu .li2:hover a{background: blue;}
+nav>.navMenu .li1:hover .a1{background: blue;}
+nav>.navMenu .ul1 .li1{background:#dd0c1d url(../img/j1.png)no-repeat;}
+nav>.navMenu .li2{background:#dd0c1d;}
+nav>.navMenu .ul1 .li1:nth-child(1){background-position:12px 0 ;}
+nav>.navMenu .ul1 .li1:nth-child(2){background-position:12px -43px ;}
+nav>.navMenu .ul1 .li1:nth-child(3){background-position:12px -86px ;}
+nav>.navMenu .ul1 .li1:nth-child(4){background-position:12px -129px ;}
+nav>.navMenu .ul1 .li1:nth-child(5){background-position:12px -172px ;}
+nav>.navMenu .ul1 .li1:nth-child(6){background-position:12px -215px ;}
+nav>.navMenu .ul1 .li1:nth-child(7){background-position:12px -258px ;}
+nav>.navMenu .ul1 .li1:nth-child(8){background-position:12px -301px ;}
+nav>.navMenu .ul1 .li1:nth-child(9){background-position:12px -344px ;}
+nav>.navMenu .ul1 .li1:nth-child(10){background-position:12px -387px ;}
+
+
+
+#footer{height:128px;background:#bababa;text-align: center;}
+#footer .footer-t{font:12px/2 "";padding-top:29px;}
+#footer .footer-t a{color:#000;}
+#footer .footer-t span{color:#620062;margin:0 15px 0 11px;}
+#footer p(font:12px/2 "";)
+
+
+
+
