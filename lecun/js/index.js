@@ -92,10 +92,12 @@ Banner.prototype.display = function(direct){
 	move(this.items[this.index],{left:0})
 }
 	new Banner();
+	
 // 自动点击左按钮
-setInterval(function(){
+
+var dong = setInterval(function(){
 	$("#left").triggerHandler("click")
-},1000)
+},2500)
 
 
 	// 滚动新闻
@@ -127,7 +129,7 @@ new Slid();
 
 
 
-
+//将用户名替换到首页
 var goods = localStorage.getItem("goods"); //接收本地存储的数据
 //console.log(goods)
 var goodss = JSON.parse(goods) //转成对象的格式
@@ -136,63 +138,19 @@ for (let i = 0; i < goodss.length; i++) { //遍历对象数组
     window.onload = function(){
     	var on = document.getElementById("on")
     	var on2 = document.getElementById("on2")
-		console.log(goodss[i].name)//打印用户名
+		
     	this.on.innerHTML = goodss[i].name//将获取到的用户名替换到首页顶端的位置
     	// this.on2.innerHTML = `HI ${goodss[i].name} 您好`//将获取到的用户名替换到首页顶端的位置
     }
 }
 
+//选项卡功能、、、图片切换
+$("#card").find("ul li").click(function(){
+	let i = $(this).index();//索引0，1，2，3
+	console.log(i)
+	$("dl").children("dd").removeClass("active").eq(i+1).addClass("active");
+})
 
-class GoodsList{
-        constructor(){
-            this.cont = document.getElementById("goodss");
-			this.agoods = [{
-			    "src":"https://img.lecuntao.com/data/upload/shop/store/goods/476/2018/03/20/476_05748880204432408_240.jpg",
-			    "name":"家居日用产品",
-			    "hot":"买一送一",
-			    "goodsId":"jiaju_1"
-			},{
-			    "src":"https://img.lecuntao.com/data/upload/shop/store/goods/4822/2019/05/30/4822_06125335398306835_240.jpg",
-			    "name":"家居日用产品",
-			    "hot":"买一送一",
-			    "goodsId":"jiaju_2"
-			},{
-			    "src":"https://img.lecuntao.com/data/upload/shop/store/goods/3739/2017/12/11/3739_05663083155368436_240.png",
-			    "name":"家居日用产品",
-			    "hot":"买一送一",
-			    "goodsId":"jiaju_3"
-			},{
-			    "src":"https://img.lecuntao.com/data/upload/shop/store/goods/4736/2018/07/31/4736_05863774636661489_240.jpg",
-			    "name":"家居日用产品",
-			    "hot":"买一送一",
-			    "goodsId":"jiaju_4"
-			},{
-			    "src":"https://img.lecuntao.com/data/upload/shop/store/goods/4764/2019/05/15/4764_06112303848940358_240.jpg",
-			    "name":"家居日用产品",
-			    "hot":"买一送一",
-			    "goodsId":"jiaju_5"
-			},{
-			    "src":"https://img.lecuntao.com/data/upload/shop/store/goods/4736/2018/08/04/4736_05866945112622830_240.jpg",
-			    "name":"家居日用产品",
-			    "hot":"买一送一",
-			    "goodsId":"jiaju_6"
-			}]
-			this.display();
-        }
-        
-        display(){
-            let str = "";
-			for(var i=0;i<this.agoods.length;i++){
-				str +=  `<li>
-							<p>${this.agoods[i].name}</p>
-							<span>${this.agoods[i].hot}</span>
-							<a href="#"><img src="${this.agoods[i].src}" ></a>
-						</li>`
-			}
-			this.cont.innerHTML = str;
-        }
-    }
-    new GoodsList();
 
 
 

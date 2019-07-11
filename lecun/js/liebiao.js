@@ -36,18 +36,12 @@ class GoodsList{
 
                 var onoff = true;
                 // 之后存
-                for(var i=0;i<this.goods.length;i++){
-                    // 老的
-                    if(this.goods[i].id == this.id){
-//                      this.goods[i].num++;//当本地存储存在点击的id时候就直接加商品数量
-                        onoff = false;
-                    }
-                }
+
                 // 新的
                 if(onoff){
-                    this.goods.push({
-                        id:this.id,//此时本地存储已经有了goods这个json，可以直接用数组的方法push在数组中添加商品数据
-                    })
+
+                    this.goods[0].id=this.id;//此时本存储中已经有了，所以直接修改id
+                    location = "page.html"
                 }
             }else{
                 // 第一次存
@@ -86,20 +80,3 @@ class GoodsList{
 new GoodsList;
 
 
-//class Car{
-//	constructor(){
-//		this.ocont = document.getElementById("cont");
-//		this.addEvent();
-//	}
-//	addEvent(){
-//          var that = this;
-//          this.ocont.onclick = function(eve){//事件委托
-//              var e = eve || window.event;
-//              var t = e.target || e.srcElement;
-//              if(t.className == "addCar"){
-//                 location = "page.html"
-//              }
-//          }
-//  }
-//}
-//new Car();

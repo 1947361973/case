@@ -1,18 +1,76 @@
 class Page{
 	constructor(options){
 		this.main_l = document.querySelector("#main");
-//		this.url = "http://localhost/lecun/data/goods.json";
 		this.url = options.url;
 		
 		this.init();
+		this.addEvent();
 	}
+	addEvent(){
+            var that = this;
+            this.main_l.onclick = function(eve){//事件委托
+                var e = eve || window.event;
+                var t = e.target || e.srcElement;
+                if(t.className == "car"){
+                	
+                    // 2.获取当前的商品ID
+                    that.id = t.parentNode.parentNode.parentNode.getAttribute("index");//当点击到商品上时候，可以获取到整个商品的对象的id
+                    console.log(that.id)
+                    // 3.存localstorage
+                    that.setData();
+                }
+                if(t.className == "pay"){
+                	location="che.html"
+                }
+            }
+        }
+	setData(){
+            // console.log(this.id);
+            // 保存多个商品，数量，一条本地存储
+            // 数组中放对象的形式处理数据
+            // 每个对象是一个商品
+            // 整个数组是一条本地存储
+            // [{id:"adsa",num:1},{},{}]
+
+            this.cargoods = localStorage.getItem("cargoods");
+
+            if(this.cargoods){
+                // 不是第一次
+                this.cargoods = JSON.parse(this.cargoods)
+
+                var onoff = true;
+                // 之后存
+                for(var i=0;i<this.cargoods.length;i++){
+                    // 老的
+                    if(this.cargoods[i].id == this.id){
+                        this.cargoods[i].num++;//当本地存储存在点击的id时候就直接加商品数量
+                        onoff = false;
+                        console.log(this.id)
+                    }
+                }
+                // 新的
+                if(onoff){
+                    this.cargoods.push({
+                        id:this.id,//此时本地存储已经有了goods这个json，可以直接用数组的方法push在数组中添加商品数据
+                        num:1
+                        
+                    })
+                }
+            }else{
+                // 第一次存
+                //     直接存
+                this.cargoods = [{//把第一次准备存的id和数量存到本地存储里面89行
+                    id:this.id,
+                    num:1
+                }];
+                
+            }
+            
+            // 最后将数据设置回去
+            localStorage.setItem("cargoods",JSON.stringify(this.cargoods))
+        }
 	init(){
             var that = this;
-//          ajaxPost(this.url,function(res){
-//              that.res = JSON.parse(res)
-//              that.getData();
-//          })
-            
             ajax({
             	type:"post",
             	url:this.url,
@@ -20,6 +78,12 @@ class Page{
             		that.res = JSON.parse(res);
             		that.getData();
             		new Magnifier();
+            		$(".img_b").children(".img2").click(function(){
+						let i = $(this).index();//点击底部小图的索引0，1，2，3，4
+						$(".b_box").children("img").attr("src","img/xq8"+i+".jpg")//点击修改右边大图的图片的src的路径实现切换图片
+						$(".s_box").children(".img1").removeClass("active").eq(i).addClass("active");//切换左边主图
+					})
+
             	}
             })
     }
@@ -31,10 +95,11 @@ class Page{
 	display(){
             var str = "";
             for(var i=0;i<this.res.length;i++){//遍历res商品库数组
-                for(var j=0;j<this.goods.length;j++){//遍历本地存储的数组
-                    if(this.res[i].goodsId == this.goods[j].id){//比较确认本地存储的产品是不是产品库中的产品再渲染
+//              for(var j=0;j<this.goods.length;j++){//遍历本地存储的数组,因为本地存储只有一个id,所以不用遍历
+//              }
+                    if(this.res[i].goodsId == this.goods[0].id){//比较确认本地存储的产品是不是产品库中的产品再渲染
                   
-                        str += `<div class="main-c">
+                        str = `<div class="main-c"  index="${this.res[i].goodsId}">
 									<div class="main_l">
 										<div class="s_box">
 											<img class="img1 active" src="${this.res[i].src}"/>
@@ -42,7 +107,7 @@ class Page{
 											<img class="img1" src="${this.res[i].src2}"/>
 											<img class="img1" src="${this.res[i].src3}"/>
 											<img class="img1" src="${this.res[i].src4}"/>
-											<span></span>
+											<span class = "span"></span>
 											<p></p><!--为了解决在js中的移动闪烁问题-->
 										</div>
 										<div class="b_box">
@@ -58,14 +123,16 @@ class Page{
 									</div>
 									<div class="main_r">
 										<h3 class="name">${this.res[i].name}</h3>
-										<h4 class="hot">商品副标题</h4>
-										<b class="price1">${this.res[i].price}</b><br>
-										<span class="price2"><s>${this.res[i].price2}</s></span>
-										<p class="car">加入购物车</p>
+										<h4 class="hot">宝贝热卖中限时抢购</h4>
+										<b class="price1">￥${this.res[i].price}</b><br>
+										<span class="price2"><s>￥${this.res[i].price2}</s></span>
+										<div class="buttn">
+											<p class="car">加入购物车</p>
+											<p id="pay" class="pay">立即购买</p>
+										</div>
 									</div>
 								</div>`
                     }
-                }
             }
             this.main_l.innerHTML = str;
     }
@@ -85,6 +152,7 @@ function Magnifier(){
 		this.bImg = document.querySelector(".b_box img");//右边的大图
 //				绑定事件
 		this.addEvent();
+		this.bBox.style.display = "block";
 }
 Magnifier.prototype.init = function(){
 //				右边大图的宽高  除以  右边框的宽高  得到比例
@@ -114,14 +182,16 @@ Magnifier.prototype.addEvent = function(){
 }
 Magnifier.prototype.over = function(){//鼠标进入左边图中，滑块block，左边图片opacity0.6，右边的图框block
 	this.span.style.display = "block";
-	this.sImg.style.opacity = "0.6";
+	this.sImg.style.opacity = "1";
 	this.bBox.style.display = "block";
-	console.log(this.span)
+	this.bImg.style.display = "block";
+	
 }
 Magnifier.prototype.out = function(){
 	this.span.style.display = "none";
 	this.sImg.style.opacity = "1";
 	this.bBox.style.display = "none";
+	
 }
 Magnifier.prototype.move = function(e){
 //				span跟随移动
@@ -151,17 +221,18 @@ Magnifier.prototype.move = function(e){
 //				设置span的背景图的位置，跟随鼠标反方向移动
 	this.span.style.backgroundPosition = -l + "px "+ -t +"px";
 }
-
-
-
-
-
+//onload = function(){
+//	new Magnifier()
+//}
 
 //选项卡功能、、、图片切换
-$(".img_b").children(".img2").click(function(){
-	let i = $(this).index();//点击底部小图的索引0，1，2，3，4
-	$(".b_box").children("img").attr("src","img/xq8"+i+".jpg")//点击修改右边大图的图片的src的路径实现切换图片
-	$(".s_box").children(".img1").removeClass("active").eq(i).addClass("active");//切换左边主图
-})
+//$(".img_b").children(".img2").click(function(){
+//	let i = $(this).index();//点击底部小图的索引0，1，2，3，4
+//	$(".b_box").children("img").attr("src","img/xq8"+i+".jpg")//点击修改右边大图的图片的src的路径实现切换图片
+//	$(".s_box").children(".img1").removeClass("active").eq(i).addClass("active");//切换左边主图
+//})
+
+
+
 
 

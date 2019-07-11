@@ -104,13 +104,9 @@ var prove_btn = document.getElementById("prove_btn")
 		var codes = 0;
 	obtn.onclick = function(){
 		if(user && pass && yzm && tel){
-			alert("注册成功")
-			
-			var goods = [{//设置一个对象用来装用户名和密码的准备存储到本地存储
-			    name:ouser.value,
-			    password:opassEnd.value
-			}];
-			localStorage.setItem("goods",JSON.stringify(goods))//把goods变量转成JSON格式上传到本地存储
+			alert("注册成功");
+
+			setData();
 			location = "sigin.html"
 		}
 		if(user == 0){
@@ -131,4 +127,45 @@ var prove_btn = document.getElementById("prove_btn")
 
 	
 	
-	
+	function setData(){
+            // console.log(this.id);
+            // 保存多个商品，数量，一条本地存储
+            // 数组中放对象的形式处理数据
+            // 每个对象是一个商品
+            // 整个数组是一条本地存储
+            // [{id:"adsa",num:1},{},{}]
+
+            this.goods = localStorage.getItem("goods");//82行--89行执行了后，在这里获取存的本地存储
+
+            if(this.goods){//如果本地存储没有goods就执行82行的代码
+                // 不是第一次
+                this.goods = JSON.parse(this.goods)//57行获取到了后进行转对象
+
+                var onoff = true;
+                // 之后存
+                for(var i=0;i<this.goods.length;i++){
+                    // 老的
+                    if(this.goods[i].name == this.ouser.value){
+                        onoff = false;
+                        alert("用户名重复")
+                    }
+                }
+                // 新的
+                if(onoff){
+                    this.goods.push({
+                    	name:ouser.value,
+			    		password:opassEnd.value
+                    })
+                }
+            }else{
+                // 第一次存
+                //     直接存
+                this.goods = [{//把第一次准备存的id和数量存到本地存储里面89行
+                    name:ouser.value,
+			    	password:opassEnd.value
+                }];
+            }
+            
+            // 最后将数据设置回去
+            localStorage.setItem("goods",JSON.stringify(this.goods))
+        }

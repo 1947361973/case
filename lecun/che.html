@@ -3,20 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="css/public.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/page.css">
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" href="css/che.css"/>
+		
 	</head>
-	<script src="libs/jquery.js"></script>
 	<body>
-		<!-- 页头部分 -->
-		<!--<div id="toubu"></div>-->
-		<!--<script>$("#toubu").load("../lecun/data/tongyong.html #theader")</script>-->
-		
-		
-		<div id="theader">
-			<!-- 页头部分 -->
-			<div class="top_l floor">
+		<div class="top_l floor">
 			    <div class="top_m">
 			        <h4>HI!, 欢迎来乐村淘商城</h4>
 			        <ul class="top">
@@ -75,7 +68,7 @@
 					</p>
 				</form>
 				<div id="shop">
-					<a href="#">我的购物车&nbsp;></a>
+					<a href="che.html">我的购物车&nbsp;></a>
 					<img src="img/t2.png" >
 				</div>
 			</header>
@@ -157,7 +150,7 @@
 					    </ul>
 					</div>
 					<ul>
-						<li><a href="index.html">首页</a></li>
+						<li><a>首页</a></li>
 						<li><a href="liebiao.html">所有宝贝</a></li>
 						<li><a>米面油</a></li>
 						<li><a>特色馆</a></li>
@@ -170,61 +163,48 @@
 				</nav>
 					<div id="qizi"></div>
 			</div>
-		</div>
-		<!-- 商品部分 -->
-		<div id="main">
-			<!--<div class="main_l">-->
-				<!--<div class="s_box">-->
-					<!--<img class="img1 active" src="img/xq80.jpg"/>-->
-					<!--<img class="img1" src="img/xq81.jpg"/>-->
-					<!--<img class="img1" src="img/xq82.jpg"/>-->
-					<!--<img class="img1" src="img/xq83.jpg"/>-->
-					<!--<img class="img1" src="img/xq84.jpg"/>-->
-					<!--<span></span>-->
-					<!--<p></p>为了解决在js中的移动闪烁问题-->
-				<!--</div>-->
-				<!--<div class="b_box">-->
-					<!--<img src="img/xq80000.jpg"/>-->
+		
+		
+		
+		<div class="catbox">
+			<table id="cartTable">
+				<thead>
+					<tr><a href="liebiao.html" id="purchase">继续购买</a></tr>
+					<tr>
+						<th>
+							<label><input class="check-all check" type="checkbox" />&nbsp;&nbsp;全选</label>
+						</th>
+						<th>商品</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th>小计</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
 					
-				<!--</div>-->
-				<!--<div class="img_b">-->
-					<!--<img class="img2" src="img/xq60.jpg" >-->
-					<!--<img class="img2" src="img/xq61.jpg" >-->
-					<!--<img class="img2" src="img/xq62.jpg" >-->
-					<!--<img class="img2" src="img/xq63.jpg" >-->
-					<!--<img class="img2" src="img/xq64.jpg" >-->
-				<!--</div>-->
-			<!--</div>-->
-			
-			<!--<div class="main_r">-->
-				<!--<h3 class="name">商品标题商品标题商品标题商品标题商品标题商品标题</h3>-->
-				<!--<h4 class="hot">商品副标题</h4>-->
-				<!--<b class="price1">促销价：￥499.00</b><br>-->
-				<!--<span class="price2"><s>市场价：￥999.00</s></span>-->
-				<!--<p class="car">加入购物车</p>-->
-			<!--</div>-->
+				</tbody>
+			</table>
+			<div class="foot" id="foot">
+				<label class="fl select-all"><input type="checkbox" class="check-all check" />&nbsp;&nbsp;全选</label>
+				<!--<a class="fl delete" id="deleteAll" href="#">删除</a>-->
+				<div class="fr closing">结 算</div>
+				<div class="fr total">合计：￥<span id="priceTotal">0</span></div>
+				<div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件<span class="arrow up"></span><span class="arrow down"></span></div>
+			</div>
 		</div>
 		
 		
-		<!-- 底部分 -->
-		<!--<div id="dibu"></div>-->
-		<!--<script>$("#dibu").load("../lecun/data/tongyong.html #tfooter")</script>-->
-		<div id="tfooter">
-			<div id="footer" class="floor">
-					<div class="footer-t">
-						<a href="#">服务协议</a><span>|</span><a href="#">隐私政策</a><span>|</span><a href="#">版权保护投诉指引</a>
-					</div>
-					<p>COPYRIGHT&copy; TENCENT. ALL RIGHTS RESERVED.</p>
-					<p>本公司版权所有</p>
-				</div>
+<div id="footer" class="floor">
+		<div class="footer-t">
+			<a href="#">服务协议</a><span>|</span><a href="#">隐私政策</a><span>|</span><a href="#">版权保护投诉指引</a>
 		</div>
+		<p>COPYRIGHT&copy; TENCENT. ALL RIGHTS RESERVED.</p>
+		<p>本公司版权所有</p>
+	</div>
 	</body>
-	<script src="js/ajax.3.0.js"></script>
-	<!--<script src="js/ajax.js"></script>-->
-	
-	<script src="js/page.js"></script>
+	<script src="libs/jquery.js"></script>
+	<script src="js/ajax.js"></script>
 	<script src="js/sjcd.js"></script>
-
+	<script src="js/che.js"></script>
 </html>
-
-

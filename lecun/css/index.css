@@ -155,6 +155,26 @@
     display: block;
 }
 #nul{height:506px;}/* 因为banner高506px那部分不占文档流所以这里用一个空的div个撑起来 */
+
+/*切换卡片*/
+#card{height:450px;border: 1px solid #e9e8ed;box-sizing: border-box;}
+#card ul{height:50px;width:1200px;display: flex;justify-content: space-between;}
+#card ul li{width:280px;height:40px;font:18px/40px ""; text-align: center;border-radius: 8px;margin:5px;color:#fff;}
+#card ul li:nth-child(1){background:pink;}
+#card ul li:nth-child(2){background:pink;}
+#card ul li:nth-child(3){background:pink;}
+#card ul li:nth-child(4){background:pink;}
+#card dl{width:1200px;height:400px;position: relative;text-align: center;}
+#card dl dd{width:1200px;height:400px;position: absolute;display: none;}
+#card dl dd:nth-child(1){background:url(../img/ka1.jpg);}
+#card dl dd:nth-child(2){background:url(../img/ka2.jpg);}
+#card dl dd:nth-child(3){background:url(../img/ka3.jpg);}
+#card dl dd:nth-child(4){background:url(../img/ka4.jpg);}
+#card dl dd.active{display: block;}
+
+
+
+
 #floor1{padding:40px 0;}
 #floor1 .title1{height: 52px;font:700 20px/52px "";margin-bottom: 5px;}
 #floor1 .title1 p{float:left;width:52px;height:52px;border-radius: 50%;background: #f04647;text-align: center;margin:0 10px;color:#fff;}
@@ -185,8 +205,10 @@
 	text-align:center;
 }
 #floor1 .floor1_r li p{
-	display: block;
+	width:209px;
+	padding:0 10px;
 	font:14px/2 "";
+	overflow: hidden;
 }
 #floor1 .floor1_r li span{
 	display: block;
@@ -244,3 +266,4 @@
 #figure .figure_r>ul li{display: flex;justify-content:space-between;font:14px/2 "";width:350px;padding:0 10px;}
 #figure .figure_r>ul li a{color:#000;}
 #figure .figure_r>ul li span{color:#666;}
+
