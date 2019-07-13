@@ -52,7 +52,7 @@ var prove_btn = document.getElementById("prove_btn")
 		        user = 1;
 		    }else{
 		        this.nextElementSibling.innerHTML = "用户名不可用";
-				alert("用户名错误请输入中文、字母、数字、“-”“_”的组合，6-20个字符");
+				alert("用户名错误请输入、字母、数字、“-”“_”的组合，6-20个字符");
 		        user = 0;
 		    }
 		}

@@ -52,7 +52,7 @@ class Che{
         }
 	total(){
 		        //事件委托，找到当前改变的数据，渲染其他数据
-		    var he = document.querySelector("#selectedTotal")
+		    
             var that = this;
             this.tbody.onchange = function(eve){
                 var e = eve || window.event;
@@ -61,11 +61,9 @@ class Che{
                     that.num = target.value; 
                     target.parentNode.nextElementSibling.innerHTML = (that.num * parseFloat(target.parentNode.previousElementSibling.innerHTML)).toFixed(2);
                    
-                    he.innerHTML = Number(that.num) + Number(that.num)//计算数量赋值到dom
-                    
                 }
                 that.opay();//商品数量发生改变时根据计算出来的小计来计算总金额函数
-                
+                that.shuliang();
             }
 	}
 	//计算合计结算金额
@@ -76,6 +74,16 @@ class Che{
             	s += parseFloat(heji[i].innerHTML);
             }
         	this.sum.innerHTML = parseFloat(s).toFixed(2);
+	}
+	shuliang(){
+		var he = document.querySelector("#selectedTotal")
+		var s = 0;
+		var shu = document.querySelectorAll(".count-input");
+		for(var i=0;i<shu.length;i++){
+            	s += Number(shu[i].value);
+            	console.log(shu[i].value)
+            }
+		he.innerHTML = s;
 	}
 	init(){
             var that = this;
@@ -109,8 +117,9 @@ class Che{
             }
             this.tbody.innerHTML = str;
             
-            this.total();
-            this.opay();
+            this.total();//事件委托计算小计
+            this.opay();//刷新时候计算总金额
+            this.shuliang();//刷新时候计算数量
         }
 }
 
